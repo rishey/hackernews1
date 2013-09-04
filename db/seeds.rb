@@ -8,7 +8,12 @@ javier.posts << Post.create(title: Faker::Lorem.sentence, url: Faker::Internet.u
 Comment.create(text: Faker::Lorem.sentence, post_id: 1, user_id: 2)
 Comment.create(text: Faker::Lorem.sentence, post_id: 1, user_id: 3)
 
+# new comment id 3 
+new_comment = Comment.create(text: Faker::Lorem.sentence)
 
+javier.posts.first.comments << new_comment
+
+richard.comments_written << new_comment
 
 javier has 1 post
 richard and brett comment on the posts
@@ -17,10 +22,10 @@ javier should have their comments
   javier.comments_received should == 2 comments 
 
 richards should have 1 made comment 
-  richard.comments_made , should see 1 comment 
+  richard.comments_written , should see 1 comment 
 
 brett should have 1 made comment 
-  brett.comments_made should see 1 comment 
+  brett.comments_written should see 1 comment 
 
 javier
 
