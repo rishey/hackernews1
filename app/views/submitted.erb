@@ -1,13 +1,12 @@
 <div class="container">
-  <h1>Hacker News</h1>
-  
-  <% if @error %>
-    <h5>Error:<%=@error%></h5>
-  <% end %>
+  <h1><%= @user.email %></h1>
 
+  <h3>All Posts</h3>
+ 
   <ol>
-    <%Post.all.each do |post|%>
+    <% @user.posts.each do |post|%>
     <li><a class="post_title" href=<%=post.url%> > <%= post.title%></a><br><a class="comment_link" href=<%="/item/#{post.id}"%> >Comments</a></li>
     <%end%>
   </ol>
+  
 </div>

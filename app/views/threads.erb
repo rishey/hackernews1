@@ -1,0 +1,12 @@
+<div class="container">
+  <h1><%= @user.email %></h1>
+
+  <h3>All Comments</h3>
+ 
+  <ol>
+    <% @user.comments_written.each do |comment|%>
+    <li><%= comment.text%><br><a class="comment_link" href=<%="/item/#{comment.post_id}"%> >Original Post</a></li>
+    <%end%>
+  </ol>
+  
+</div>

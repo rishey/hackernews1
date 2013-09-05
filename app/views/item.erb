@@ -1,0 +1,18 @@
+<div class="container">
+  <h1><a class="post_title" href=<%=@post.url%> > <%= @post.title%></a></h1>
+  
+
+  <div class="list_comments">
+    <ul>
+      <% @post.comments.each do |comment|%>
+        <li><%=comment.text%> 
+          <span>
+            <% user = User.find(comment.user_id) %>
+            <a href=<%="/user/#{user.id}"%> ><%=user.email%></a>
+          </span>
+        </li>
+      <%end%>
+    </ul>
+  </div>
+
+</div>
